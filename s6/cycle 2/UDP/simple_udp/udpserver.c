@@ -50,5 +50,5 @@ void main()
     strcpy(buffer, "Data successfully received.");
     printf("(Server) Data to client: %s\n", buffer);
 
-    sendto(sockfd, buffer, 1024, 0, (struct sockaddr *)&client_addr, sizeof(client_addr));
+    sendto(sockfd, buffer, 1024, 0, (struct sockaddr *)&client_addr, addr_size);
 }

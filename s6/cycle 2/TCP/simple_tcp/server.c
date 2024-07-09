@@ -10,7 +10,7 @@
 void main()
 {
     char *ip = "127.0.0.1";
-    int port = 434525;            // should be same as client port
+    int port = 12345;            // should be same as client port
     int server_sock, client_sock; // server and client socket file descriptors
     struct sockaddr_in server_addr, client_addr;
     socklen_t addr_size;
@@ -50,8 +50,23 @@ void main()
         bzero(buffer, 1024); // clear the buffer
         recv(client_sock, buffer, sizeof(buffer), 0);
         printf(" Client : %s\n", buffer);
-        bzero(buffer, 1024);
-        strcpy(buffer, "HELLO , THIS IS SERVER ");
+        //check if string is palindrome from buffer
+        int i = 0, j = strlen(buffer) - 1;
+        while (i < j)
+        {
+            if (buffer[i] != buffer[j])
+            {
+                strcpy(buffer, "NOT PALINDROME");
+                break;
+            }
+            i++;
+            j--;
+        }
+        if (i >= j)
+        {
+            strcpy(buffer, "PALINDROME");
+        }
+        // strcpy(buffer, "HELLO , THIS IS SERVER ");
         printf(" Server : %s\n", buffer);
         send(client_sock, buffer, strlen(buffer), 0);
         close(client_sock);

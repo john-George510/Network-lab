@@ -7,10 +7,11 @@
 #include <string.h>
 #include <unistd.h>
 #include <arpa/inet.h>
+
 void main()
 {
     char *ip = "127.0.0.1";
-    int port = 434525; // should be same as server port
+    int port = 434527; // should be same as server port
     int sock, connection_status;
     struct sockaddr_in addr;
     socklen_t addr_size;
@@ -37,7 +38,7 @@ void main()
     }
     printf("[+] Connected to the server .\n");
     bzero(buffer, 1024);
-    strcpy(buffer, " HELLO FROM THE CLIENT ");
+    strcpy(buffer, " AMMA ");
     printf(" Client : %s\n", buffer);
     send(sock, buffer, strlen(buffer), 0);
     bzero(buffer, 1024);

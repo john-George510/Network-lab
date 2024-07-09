@@ -29,6 +29,7 @@ void main()
         int indexNode;
         int min = INT_MAX;
 
+        //to find min node from neighbours
         for (int i = 0; i < nodeCount; ++i)
         {
             if (nodes[root][i] != -1 && root != i && nodesAdded[i] != 1 && nodes[root][i] < min)

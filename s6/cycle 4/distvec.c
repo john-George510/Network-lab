@@ -1,5 +1,10 @@
 #include<stdio.h>
 
+typedef struct node{
+	int cost;
+	int hop;
+} node;
+
 void main()
 {
 	int dist[10][10];
@@ -27,6 +32,7 @@ void main()
 					if(dist[i][j]>dist[i][k]+dist[k][j])
 					{
 						dist[i][j]=dist[i][k]+dist[k][j];
+						
 						count=1;
 					}
 				}
